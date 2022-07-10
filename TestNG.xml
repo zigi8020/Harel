@@ -1,0 +1,10 @@
+<suite name="Suite1" verbose="1">
+    <test name="firstTest">
+        <parameter name="url" value="https://digital.harel-group.co.il/travel-policy"/>
+        <parameter name="platform" value="chrome"/>
+        <classes>
+            <class name="Tests.BaseTest"/>
+            <class name="Tests.FlightPurchaseTest"/>
+        </classes>
+    </test>
+</suite>

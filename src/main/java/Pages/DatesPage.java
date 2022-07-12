@@ -25,8 +25,7 @@ import static Utilities.AllureReports.screenShot;
     public String getTravelEndDate() {
         return getText(travelEndDate);
     }
-
-    String startDate, endDate;
+    
     @FindBy(xpath = "(//button[@class = 'MuiButtonBase-root MuiIconButton-root jss238 jss223'])[7]")
     WebElement startDateBtn;
 

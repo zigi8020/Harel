@@ -1,4 +1,4 @@
-package Pages;
+    package Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -8,7 +8,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class DatesPage extends BasePage {
+import static Utilities.AllureReports.screenShot;
+
+    public class DatesPage extends BasePage {
 
     @FindBy(id = "travel_start_date")
     WebElement travelStartDate;
@@ -24,43 +26,28 @@ public class DatesPage extends BasePage {
         return getText(travelEndDate);
     }
 
-    //I could not make it work
-    
-//    String startDate, endDate;
-//    @FindBy(xpath = "//button[@data-hrl-bo = '"+startDate+"']")
-//    WebElement startDateBtn;
-//
-//    public void clickOnStartDateBtn() {
-//        click(startDateBtn);
-//    }
-//
-//    @FindBy(xpath = "//button[@data-hrl-bo = "+endDate+"']")
-//    WebElement endDateBtn;
-//
-//    public void clickOnEndDateBtn() {
-//        click(endDateBtn);
-//    }
-//
-//    public void chooseDates() {
-//        String currentDate = String.valueOf(java.time.LocalDate.now());
-//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-//        Calendar cal = Calendar.getInstance();
-//
-//        try {
-//            cal.setTime(sdf.parse(currentDate));
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//
-//        }
-//
-//        cal.add(Calendar.DAY_OF_MONTH, 7);
-//        startDate = sdf.format(cal.getTime());
-//        clickOnStartDateBtn();
-//
-//        cal.add(Calendar.DAY_OF_MONTH, 30);
-//        endDate = sdf.format(cal.getTime());
-//        clickOnEndDateBtn();
-//    }
+    String startDate, endDate;
+    @FindBy(xpath = "(//button[@class = 'MuiButtonBase-root MuiIconButton-root jss238 jss223'])[7]")
+    WebElement startDateBtn;
+
+    public void clickOnStartDateBtn() {
+        click(startDateBtn);
+    }
+
+    @FindBy(xpath = "(//button[@class = 'MuiButtonBase-root MuiIconButton-root jss238 jss223'])[35]")
+    WebElement endDateBtn;
+
+    public void clickOnEndDateBtn() {
+        click(endDateBtn);
+    }
+
+    @FindBy(xpath = "//span[@data-hrl-bo = 'total-days']")
+    WebElement totalDays;
+
+    public String getTotalDays() {
+        screenShot("totalDays");
+        return getText(totalDays);
+    }
 
     @FindBy(id = "backButton")
     WebElement backButton;
@@ -75,5 +62,4 @@ public class DatesPage extends BasePage {
     public void clickOnContinueBtn() {
         click(continueBtn);
     }
-
 }

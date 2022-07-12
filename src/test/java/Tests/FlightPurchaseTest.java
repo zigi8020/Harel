@@ -9,7 +9,9 @@ public class FlightPurchaseTest extends BaseTest{
     void firstTimePurchase() {
         homePage.clickOnPurchaseForNewCustomer();
         continentsPage.clickOnAustralia();
-        //datesPage.chooseDates();
+        datesPage.clickOnStartDateBtn();
+        datesPage.clickOnEndDateBtn();
+        Assert.assertEquals(datesPage.getTotalDays(), "סה\"כ: 30 ימים");
         datesPage.clickOnContinueBtn();
         Assert.assertEquals(passengersPage.getScreenTitle(), "נשמח להכיר את הנוסעים שנבטח הפעם");
     }
